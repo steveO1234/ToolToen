@@ -9,7 +9,7 @@
     android:paddingRight="64dp"
     android:paddingTop="16dp"
     android:background="#ffffff"
-    tools:context = ".SignupActivity">
+    tools:context = ".BusinessSignupActivity">
 
     <ScrollView
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -25,7 +25,7 @@
             android:paddingLeft="24dp"
             android:paddingRight="24dp">
 
-            <!--  First Name Label -->
+            <!--  Business Label -->
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,28 +33,12 @@
                 android:layout_marginBottom="0dp">
 
                 <EditText
-                    android:id="@+id/input_Fname"
+                    android:id="@+id/business_Name"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textCapWords"
-                    android:hint="First Name" />
+                    android:hint="Business Name" />
             </android.support.design.widget.TextInputLayout>
-
-            <!--  Last Name -->
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="0dp">
-
-                <EditText
-                    android:id="@+id/input_Lname"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textCapWords"
-                    android:hint="Last Name" />
-            </android.support.design.widget.TextInputLayout>
-
 
             <!-- Email Label -->
             <android.support.design.widget.TextInputLayout
@@ -69,21 +53,6 @@
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
                     android:hint="Email" />
-            </android.support.design.widget.TextInputLayout>
-
-            <!--Age-->
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="0dp">
-
-                <EditText
-                    android:id="@+id/input_age"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="date"
-                    android:hint="DOB" />
             </android.support.design.widget.TextInputLayout>
 
             <!-- Address Label -->
@@ -146,37 +115,6 @@
                     android:hint="Phone #"/>
             </android.support.design.widget.TextInputLayout>
 
-            <!--
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="0dp">
-
-                <EditText
-                    android:id="@+id/input_Emergency"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    android:hint="Emergency Contact Phone #"/>
-            </android.support.design.widget.TextInputLayout>
-            -->
-
-            <!-- Password Label
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
-                android:layout_marginBottom="10dp">
-
-                <EditText
-                    android:id="@+id/input_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"
-                    android:hint="Password"/>
-            </android.support.design.widget.TextInputLayout>  -->
-
             <!-- Signup Button -->
             <Button
                 android:id="@+id/btn_signup"
@@ -187,7 +125,7 @@
                 android:padding="12dp"
                 android:textColor="#ffffff"
                 android:background="#000000"
-                android:text="Create Account"/>
+                android:text="Create Profile"/>
 
             <TextView
                 android:id="@+id/link_login"

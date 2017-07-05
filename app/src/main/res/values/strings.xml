@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Tools</string>
+    <string name="title_activity_business_signup">BusinessSignupActivity</string>
 </resources>
