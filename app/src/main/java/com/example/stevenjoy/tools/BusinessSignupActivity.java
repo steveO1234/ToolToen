@@ -1,6 +1,7 @@
 package com.example.stevenjoy.tools;
 
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -15,6 +16,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -24,6 +29,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,16 +46,22 @@ public class BusinessSignupActivity  extends AppCompatActivity {
 
     @BindView(R.id.business_Name) EditText _fname;
     @BindView(R.id.input_email) EditText _emailText;
-    //@BindView(R.id.input_password) EditText _passwordText;
     @BindView(R.id.btn_signup) Button _signupButton;
     @BindView(R.id.link_login) TextView _loginLink;
 
-    //@BindView(R.id.input_Lname) EditText _lname;
-    //@BindView(R.id.input_age) EditText _age;
     @BindView(R.id.input_Address) EditText _address;
     @BindView(R.id.input_city) EditText _city;
     @BindView(R.id.input_state) EditText _state;
     @BindView(R.id.input_Phone) EditText _phone;
+
+    private Firebase mref;
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
+
+    // private DatabaseReference mDatabase;
+    private String mUserId;
+
+    private Map<String, String> users = new HashMap<String, String>();
 
 
     @Override
@@ -57,12 +70,39 @@ public class BusinessSignupActivity  extends AppCompatActivity {
         setContentView(R.layout.activity_business_signup);
         ButterKnife.bind(this);
 
+        Firebase.setAndroidContext(this);
+
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        // mDatabase = FirebaseDatabase.getInstance().getReference();
+
+        if (mFirebaseUser == null) {
+            // Not logged in, launch the Log In activity
+            startActivity(new Intent(BusinessSignupActivity.this, MainActivity.class));
+
+        } else {
+            mUserId = mFirebaseUser.getUid();
+        }
+
+        // add Users to create users object in json file
+        mref = new Firebase("https://tools-aee24.firebaseio.com/Business");
+
         _signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // signup();
                 if (validate() == true) {
-                    insertDatabase();
+
+                    users.put("Business" ,_fname.getText().toString());
+                    users.put("Email" ,_emailText.getText().toString());
+                    users.put("Address" ,_address.getText().toString());
+                    users.put("City" ,_city.getText().toString());
+                    users.put("State" ,_state.getText().toString());
+                    users.put("Phone" ,_phone.getText().toString());
+
+                    mref.child(mUserId).push().
+                            child("Companies").setValue(users);
+
+
                     // Log.d("String", "worked");
                 } else {
                     Log.d("String", "didnt work");

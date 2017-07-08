@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    startActivity(new Intent(MainActivity.this, HomeScreen.class));
+                   // startActivity(new Intent(MainActivity.this, HomeScreen.class));
                     Log.d("TAG", "onAuthStateChanged:signed_in:" + user.getUid());
                 } else {
                     // User is signed out
@@ -137,8 +137,6 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
     private void signIn(String email, String password) {
-      //  String email = eMail.getText().toString();
-      //  String password = mPassWord.getText().toString();
 
         if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
             Toast.makeText(MainActivity.this, "Fields are empty", Toast.LENGTH_SHORT).show();
