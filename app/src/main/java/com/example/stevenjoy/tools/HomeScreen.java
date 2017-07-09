@@ -12,6 +12,7 @@ public class HomeScreen extends AppCompatActivity {
 
     private Button personalAccount;
     private Button businessAccount;
+    private Button tempButton;
 
 
     private ImageView mImageView;
@@ -23,6 +24,7 @@ public class HomeScreen extends AppCompatActivity {
 
         personalAccount = (Button) findViewById(R.id.personal_button);
         businessAccount = (Button) findViewById(R.id.business_button);
+        tempButton = (Button) findViewById(R.id.temp_button);
 
 
         personalAccount.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +41,14 @@ public class HomeScreen extends AppCompatActivity {
             public void onClick(View view) {
 
                 startActivity(new Intent(HomeScreen.this, BusinessSignupActivity.class));
+            }
+        });
+
+        tempButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(HomeScreen.this, UploadFromGallery.class));
             }
         });
 

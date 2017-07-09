@@ -11,7 +11,7 @@
         android:layout_width="150dp"
         android:layout_height="130dp"
         android:background="@drawable/circle_states"
-        android:text="Lets Create A Profile"
+        android:text="@string/create_account"
         android:textColor="#ffa500"
         android:layout_gravity="center_vertical|center_horizontal"
         android:id="@+id/profile_button"
@@ -30,18 +30,31 @@
         android:layout_alignTop="@+id/personal_button" />
 
     <Button
-        android:id="@+id/personal_button"
+    android:id="@+id/personal_button"
+    android:layout_width="150dp"
+    android:layout_height="70dp"
+    android:background="@drawable/circle_states"
+    android:text="Personal"
+    android:textColor="#ffa500"
+    android:layout_below="@+id/profile_button"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:layout_marginLeft="10dp"
+    android:layout_marginStart="10dp"
+    android:layout_marginTop="75dp" />
+
+    <Button
+        android:id="@+id/temp_button"
         android:layout_width="150dp"
         android:layout_height="70dp"
         android:background="@drawable/circle_states"
-        android:text="Personal"
+        android:text="GalleryActivity"
         android:textColor="#ffa500"
-        android:layout_below="@+id/profile_button"
+        android:layout_below="@+id/personal_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_marginLeft="10dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="75dp" />
-
 
     </RelativeLayout>

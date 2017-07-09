@@ -23,7 +23,8 @@
         </activity>
         <activity android:name=".SignupActivity" />
         <activity android:name=".HomeScreen" />
-        <activity android:name=".BusinessSignupActivity"/>
+        <activity android:name=".BusinessSignupActivity" />
+        <activity android:name=".UploadFromGallery"></activity>
     </application>
 
 </manifest>
